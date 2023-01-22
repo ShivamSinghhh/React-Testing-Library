@@ -44,3 +44,11 @@ it('should make button disabled & checkbox checked and vice-versa',()=>{
 
 })
 
+test('button color should be gray when disabled',()=>{
+  render(<App/>)
+  const button = screen.getByRole('button');
+  const checkbox = screen.getByRole('checkbox',{name:"Disable button"});
+  fireEvent.click(checkbox)  
+  expect(button).toHaveStyle({backgroundColor:"grey"})
+})
+

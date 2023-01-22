@@ -1,6 +1,12 @@
 import { useState } from "react";
 import "./App.css";
 
+
+export function replaceCamelCaseWithSpace(colorName) {
+  return colorName.replace(/([a-z])([A-Z])/g, "$1 $2");
+}
+
+
 function App() {
   const [color, setColor] = useState("red");
   const [text, setText] = useState("blue");

@@ -1,37 +1,42 @@
 import { useState } from "react";
 import "./App.css";
 
-
 export function replaceCamelCaseWithSpace(colorName) {
   return colorName.replace(/([a-z])([A-Z])/g, "$1 $2");
 }
 
-
 function App() {
-  const [color, setColor] = useState("red");
-  const [text, setText] = useState("blue");
+  const [color, setColor] = useState("MediumVioletRed");
+  const [disabled, setDisabled] = useState(false);
 
-  const [disabled,setDisabled] = useState(false)
+  const newButtonColor =
+    color === "MediumVioletRed" ? "MidnightBlue" : "MediumVioletRed";
 
-  const handleClick = () => {
+  const handleClickButton = () => {
     console.log("handle clicked called");
-    const newColor = color === "red" ? "blue" : "red";
-    const newText = text === "blue" ? "red" : "blue";
-    setColor(newColor);
-    setText(newText);
+    setColor(newButtonColor);
   };
-  const handleChange = () => {
-    setDisabled(!disabled);   
+  
+  const handleChangeCheckbox = () => {
+    setDisabled(!disabled);
   };
 
   return (
     <div className="App">
-      <button disabled={disabled} onClick={handleClick} style={{backgroundColor: disabled? "grey":color}}>
-        Change to {text}
+      <button
+        disabled={disabled}
+        onClick={handleClickButton}
+        style={{ backgroundColor: disabled ? "grey" : color }}
+      >
+        Change to {replaceCamelCaseWithSpace(newButtonColor)}
       </button>
       <div>
-        <input type="checkbox" id="enable-button-checkbox" onChange={handleChange} />
-      <label htmlFor="enable-button-checkbox">Disable button</label>
+        <input
+          type="checkbox"
+          id="enable-button-checkbox"
+          onChange={handleChangeCheckbox}
+        />
+        <label htmlFor="enable-button-checkbox">Disable button</label>
       </div>
     </div>
   );

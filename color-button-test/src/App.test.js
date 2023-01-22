@@ -5,24 +5,24 @@ import App, { replaceCamelCaseWithSpace } from "./App";
 test("button has correct innitial color & updates when clicked", () => {
   render(<App />);
   // logRoles(container)
-  // find an element with a role of button and text for "Change to blue"
-  const colorButton = screen.getByRole("button", { name: "Change to blue" });
+  // find an element with a role of button and text for "Change to Midnight Blue"
+  const colorButton = screen.getByRole("button", { name: "Change to Midnight Blue" });
 
   // expect the background color to be red
-  expect(colorButton).toHaveStyle({ backgroundColor: "red" });
+  expect(colorButton).toHaveStyle({ backgroundColor: "MediumVioletRed" });
 
   // click functionalities
   fireEvent.click(colorButton);
-  // expect the background color to be blue when clicked
-  expect(colorButton).toHaveStyle({ backgroundColor: "blue" });
-  expect(colorButton).toHaveTextContent("Change to red");
+  // expect the background color to be MidnightBlue when clicked
+  expect(colorButton).toHaveStyle({ backgroundColor: "MidnightBlue" });
+  expect(colorButton).toHaveTextContent("Change to Medium Violet Red");
 });
 
 test("initial conditions", () => {
   render(<App />);
   // check that the button starts out enabled
-  const colorButton = screen.getByRole("button", { name: "Change to blue" });
-  expect(colorButton).toBeInTheDocument();
+  const colorButton = screen.getByRole("button", { name: "Change to Midnight Blue" });
+  expect(colorButton).toBeEnabled();
   // check that checkbox is starts out unchecked
   const checkbox = screen.getByRole("checkbox");
   expect(checkbox).not.toBeChecked();
@@ -59,6 +59,6 @@ describe("spaces before camelcase capital letters", () => {
     expect(replaceCamelCaseWithSpace("MidnightBlue")).toBe("Midnight Blue");
   });
   test("works for multiple capital letters", () => {
-    expect(replaceCamelCaseWithSpace("MediumVoiletRed")).toBe("Medium Voilet Red");
+    expect(replaceCamelCaseWithSpace("MediumVioletRed")).toBe("Medium Violet Red");
   });
 });

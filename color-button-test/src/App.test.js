@@ -39,7 +39,7 @@ it("should make button disabled & checkbox checked and vice-versa", () => {
 
   fireEvent.click(checkbox);
   expect(checkbox).not.toBeChecked();
-  expect(colorButton).not.toBeDisabled();
+  expect(colorButton).toBeEnabled();
 });
 
 test("button color should be gray when disabled", () => {

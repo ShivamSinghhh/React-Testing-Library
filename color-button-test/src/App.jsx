@@ -25,6 +25,7 @@ function App() {
       </button>
       <div>
         <input type="checkbox" id="enable-button-checkbox" onChange={handleChange} />
+      <label htmlFor="enable-button-checkbox">Disable button</label>
       </div>
     </div>
   );
